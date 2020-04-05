@@ -51,9 +51,9 @@ class DCConvStack(nn.Module):
 
         """
         super().__init__()
-        dilation = 1
         main_list = []
         for i in range(depth):
+            dilation = 2**i
             main_list.append(
                 TemporalBlock(
                     channels[i], channels[i+1],
