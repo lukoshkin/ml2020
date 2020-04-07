@@ -1,6 +1,8 @@
 # Skoltech ML course, 2020
 
-Some implemented features that may become useful later:  
+***Some implemented features that may become useful later:***
+
+**Homeworks**
 
 * HW2, part1: 
     - plotting with customizable layout (HW2, part1), 
@@ -18,5 +20,18 @@ Some implemented features that may become useful later:
 * HW3, part2:
     - a bit of theory, just a little
 
-There were 4 homeworks; 
-HW1 and HW4 contained nothing useful, so I didn't upload it
+*There were 4 homeworks; 
+HW1 and HW4 contained nothing useful, so I didn't upload them*
+
+**Project**
+
+*See the project description at
+[the project folder](https://github.com/lukoshkin/ml2020/tree/master/project)*
+
+* Exponentially dilated causal convolutions
+* Recurrent and convolutional encoder for time series
+* Recurrent and convolutional decoder for time series
+* Convolutional classifier for time series
+* Convolutional Regressor for time series reconstruction
+  from persistence landscapes
+* Some other tools
