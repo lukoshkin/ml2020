@@ -2,6 +2,8 @@ import numpy as np
 import torch 
 import torch.nn as nn
 
+from causal_convolution import DCConvStack
+
 class RNNSeqEncoder(nn.Module):
     def __init__(self, emb_size, code_size):
         super().__init__()

@@ -1,4 +1,5 @@
 # Author: Maksim Velikanov
+import numpy as np
 
 import torch
 from gtda.plotting import plot_point_cloud
