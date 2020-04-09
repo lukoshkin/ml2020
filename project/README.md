@@ -1,4 +1,4 @@
-# Persistence landscapes in Time Series Data Augmentation
+# Persistence Landscapes in Time Series Data Augmentation
 
 ### Project Description
 
@@ -61,7 +61,7 @@ TDA part (TDA-time-series.ipynb)
 ### References
 
 It is more about concepts and materials I liked rather than
-those that become central in the project
+those that became central in the project
 
 * [Weight Normalization](https://arxiv.org/pdf/1602.07868.pdf)
 * [Dilated Causal Convolutions](https://arxiv.org/pdf/1803.01271.pdf)

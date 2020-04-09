@@ -25,7 +25,7 @@ HW1 and HW4 contained nothing useful, so I didn't upload them*
 
 **Project**
 
-*See the project description at
+*See the project description in
 [the project folder](https://github.com/lukoshkin/ml2020/tree/master/project)*
 
 * Exponentially dilated causal convolutions
