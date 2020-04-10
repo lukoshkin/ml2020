@@ -166,7 +166,7 @@ class SeqClassifier(ConvEncoder):
         return super().forward(X).softmax(1)
 
     def predict(self, X):
-        return super().forward(X).argmax(1)
+        return super().forward(X).argmax(1).cpu()
 
 
 
