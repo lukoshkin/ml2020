@@ -18,7 +18,7 @@
     - nothing
 
 * HW3, part2:
-    - a bit of theory, just a little
+    - a bit of theory, just a smattering
 
 *There were 4 homeworks; 
 HW1 and HW4 contained nothing useful, so I didn't upload them*
@@ -34,4 +34,5 @@ HW1 and HW4 contained nothing useful, so I didn't upload them*
 * Convolutional classifier for time series
 * Convolutional Regressor for time series reconstruction
   from persistence landscapes
+* Oversampling technique (implemented in PyTorch)
 * Some other tools
