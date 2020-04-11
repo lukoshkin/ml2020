@@ -171,8 +171,10 @@ class SeqClassifier(ConvEncoder):
 
 
 class LandscapeInverse(nn.Module):
-# Input: (batch_size, feature_level, num_layers, n_bins)
-# The last three form 'shape' 3-tuple
+    """
+    Forward's input: (batch_size, feature_level, num_layers, n_bins)
+    The last three form 'shape' 3-tuple
+    """
     def __init__(
         self, emb_size, shape,
         seq_length, channels, kernel_size=28):
@@ -183,24 +185,19 @@ class LandscapeInverse(nn.Module):
         self.tb = DCConvStack(channels, kernel_size, len(channels)-1)
         self.proj = nn.Sequential(
                     nn.Linear(shape[2], seq_length),
-                    nn.BatchNorm1d(shape[0]*shape[1]),
                     nn.LeakyReLU(.2, inplace=True))
 
     def forward(self, landscape):
         return self.tb(self.proj(landscape.flatten(1,2)))
 
-    # if landscape is not a torch.Tensor, substitute `.flatten(1,2)`
-    # with `torch.flatten(<>, 1, 2)`
-
-
-
-# forward's input:
-#    landscape (batch_size, feature_level, num_layers, n_bins)
-#    The last 3 form 'shape' 3-tuple
-
-#    code (batch_size, code_size)
 
 class StackDecoder(nn.Module):
+    """
+    landscape: (batch_size, feature_level, num_layers, n_bins)
+    The last three form 'shape' 3-tuple
+
+    code: (batch_size, code_size)
+    """
     def __init__(
         self, emb_size, code_size, shape,
         seq_length, channels, kernel_size=28):
@@ -212,11 +209,9 @@ class StackDecoder(nn.Module):
         self.tb = DCConvStack(channels, kernel_size, len(channels)-1)
         self.proj1 = nn.Sequential(
                     nn.Linear(np.prod(shape), code_size),
-                    nn.BatchNorm1d(code_size),
                     nn.LeakyReLU(.2, inplace=True))
         self.proj2 = nn.Sequential(
                     nn.Linear(code_size*2, channels[0]),
-                    nn.BatchNorm1d(channels[0]),
                     nn.LeakyReLU(.2, inplace=True))
 
     def forward(self, code, landscape):
@@ -224,8 +219,6 @@ class StackDecoder(nn.Module):
         H = self.proj2(H)[...,None].expand(-1, *self._shape)
         return self.tb(H)
 
-    # if landscapy is not a torch.Tensor, substitute `.flatten(1,2)`
-    # with `torch.flatten(<>, 1, 2)`
 
 class TDASAE(nn.Module):
     def __init__(
