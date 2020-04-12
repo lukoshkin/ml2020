@@ -41,18 +41,17 @@ class DCConvStack(nn.Module):
     Stack of temporal blocks, namely
     exponentially dilated causal convolutions
     """
-    def __init__(self, channels, kernel_size, depth=3):
+    def __init__(self, channels, kernel_size):
         """
         Args:
         ----
-        channels    list of integers of length `depth+1`;
+        channels    list of integers specifying the network structure
                     channels[0] - number of net's input channels,
-                    channels[1:] - numbers of output channels of its layers
-
+                    channels[1:] - numbers of neurons in each layer
         """
         super().__init__()
         main_list = []
-        for i in range(depth):
+        for i in range(len(channels)-1):
             dilation = 2**i
             main_list.append(
                 TemporalBlock(
